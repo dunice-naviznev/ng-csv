@@ -221,7 +221,8 @@ angular.module('ngCsv.directives').
         addByteOrderMarker: "@addBom",
         ngClick: '&',
         charset: '@charset',
-        label: '&csvLabel'
+        label: '&csvLabel',
+        callback: '='
       },
       controller: [
         '$scope',
@@ -280,6 +281,10 @@ angular.module('ngCsv.directives').
 
             return deferred.promise;
           };
+
+          $scope.passCSV = function () {
+            $scope.callback && $scope.callback($scope.csv);
+          }
         }
       ],
       link: function (scope, element, attrs) {
@@ -289,6 +294,7 @@ angular.module('ngCsv.directives').
             type: "text/csv;charset="+ charset + ";"
           });
 
+          if (angular.isDefined(scope.callback)) { return scope.passCSV(); }
           if (window.navigator.msSaveOrOpenBlob) {
             navigator.msSaveBlob(blob, scope.getFilename());
           } else {
