@@ -5,7 +5,7 @@
   "description": "Simple directive that turns arrays and objects into downloadable CSV files",
   "repository": {
     "type": "git",
-    "url": "git@github.com:asafdav/ng-csv.git"
+    "url": "git@github.com:dunice-naviznev/ng-csv.git"
   },
   "keywords": [
     "angular",
@@ -57,7 +57,7 @@
   },
   "autoupdate": {
     "source": "git",
-    "target": "https://github.com/asafdav/ng-csv.git",
+    "target": "https://github.com/dunice-naviznev/ng-csv.git",
     "basePath": "",
     "files": [
       "build/ng-csv.min.js",
